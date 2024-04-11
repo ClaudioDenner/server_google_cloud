@@ -1,9 +1,9 @@
-name: Auto Push Server
+name: Pull on Push
 
 on:
   push:
     branches:
-      - main
+      - main  # Substitua 'main' pelo nome da sua branch principal, se necessário
 
 jobs:
   pull:
@@ -11,8 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Pull Changes
-    - run: git pull origin main
-    - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+    - name: Pull changes
+      run: git pull origin main 
