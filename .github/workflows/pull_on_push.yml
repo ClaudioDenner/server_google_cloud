@@ -11,8 +11,8 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
     - name: Pull Changes
-    #- run: git pull origin main
+    - run: git pull origin main
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
