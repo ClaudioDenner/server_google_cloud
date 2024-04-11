@@ -13,5 +13,5 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Pull changes
-      run: git pull origin main 
+    - name: Run script to pull changes
+      run: ./pull_changes.sh
