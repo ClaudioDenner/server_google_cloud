@@ -1,4 +1,4 @@
-name: Pull on Push
+name: Deploy to Cloud Instance
 
 on:
   push:
@@ -6,12 +6,17 @@ on:
       - main  # Substitua 'main' pelo nome da sua branch principal, se necessário
 
 jobs:
-  pull:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Run script to pull changes
-      run: git pull origin main
+    - name: Install SSH client
+      run: sudo apt-get install openssh-client
+
+    - name: Deploy to Cloud Instance
+      run: scp -r * claudiodenner2@34.125.14.56:/home/claudiodenner2/repository
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
