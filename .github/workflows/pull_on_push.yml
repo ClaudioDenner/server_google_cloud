@@ -17,6 +17,6 @@ jobs:
       run: sudo apt-get install openssh-client
 
     - name: Deploy to Cloud Instance
-      run: scp -r * claudio@34.125.14.56:/home/claudiodenner2/repository
+      run: scp -r * claudio@34.125.14.56:/home/claudio
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
